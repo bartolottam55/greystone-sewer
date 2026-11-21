@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Sewer camera inspection and power rodding on Chicago North Side. Flat rate, footage provided, scope credited toward the rodding.">
+<meta name="robots" content="noindex, nofollow">
+<style>
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html,body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<title>Greystone Sewer Co</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600;700;800&display=swap">
+
+<style>
+/* Layout: limestone ground, slate type, brass rules. No photography -- the asset
+   in this trade is what the camera finds, so the page is built on diagrams and
+   type instead of stock. Single committed identity; palette is fixed. */
+:root{
+  color-scheme: light;
+  --stone:#E7E8E3;        /* Chicago limestone, cooled */
+  --stone-2:#FFFFFF;
+  --stone-3:#DDDFD9;
+  --slate:#1A2123;        /* near-black, green-grey bias */
+  --slate-2:#2C3538;
+  --brass:#B0803F;        /* greystone hardware */
+  --brass-lt:#D4A661;
+  --ink:#151A1B;
+  --muted:#5B686B;
+  --line:#CBCEC7;
+
+  --display:'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --body:'Figtree', -apple-system, 'Segoe UI', system-ui, sans-serif;
+  --wrap:1140px;
+  --gutter:clamp(20px,5vw,56px);
+  --hdr:72px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--stone);color:var(--ink);font-family:var(--body);
+     font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased}
+img,svg{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0;font-family:var(--display);font-weight:400;text-wrap:balance;
+         letter-spacing:-.015em;line-height:1.06}
+p{margin:0}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px;border-radius:3px}
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+.eyebrow{font-family:var(--body);font-weight:700;font-size:.7rem;letter-spacing:.19em;
+         text-transform:uppercase}
+
+/* header */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--slate);
+       border-bottom:1px solid rgba(176,128,63,.35)}
+.navrow{display:flex;align-items:center;gap:22px;padding-block:12px;min-height:var(--hdr)}
+.brand{display:flex;align-items:center;gap:13px;text-decoration:none;margin-right:auto}
+.brand-words{display:flex;flex-direction:column;line-height:1}
+.brand-name{font-family:var(--display);font-size:1.42rem;color:#fff;letter-spacing:.01em}
+.brand-sub{font-family:var(--body);font-weight:700;font-size:.56rem;color:var(--brass-lt);
+           letter-spacing:.26em;text-transform:uppercase;margin-top:5px}
+.navlinks{display:flex;gap:26px;align-items:center}
+.navlinks a{color:#C3CBCB;text-decoration:none;font-weight:600;font-size:.92rem}
+.navlinks a:hover{color:var(--brass-lt)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--body);
+     font-weight:700;font-size:.95rem;padding:13px 22px;border-radius:2px;text-decoration:none;
+     border:0;cursor:pointer;transition:transform .12s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.btn--brass{background:var(--brass);color:#fff}
+.btn--brass:hover{background:#C08F4C}
+.btn--slate{background:var(--slate);color:#fff}
+.btn--slate:hover{background:var(--slate-2)}
+.btn--ghost{background:transparent;color:var(--slate);border:1.5px solid var(--line)}
+.btn--ghost:hover{border-color:var(--brass);color:var(--brass)}
+.btn--lg{padding:16px 28px;font-size:1.03rem}
+
+/* hero */
+.hero{background:var(--slate);color:#fff;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:4px;
+  background:linear-gradient(90deg,var(--brass) 0 33%,var(--slate-2) 33% 66%,var(--brass) 66%)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,5vw,64px);
+           align-items:center;padding-block:clamp(48px,6.5vw,86px)}
+.hero .eyebrow{color:var(--brass-lt);display:flex;align-items:center;gap:11px}
+.hero .eyebrow::before{content:"";width:28px;height:1.5px;background:var(--brass);flex:none}
+h1{font-size:clamp(2.6rem,6vw,4.6rem);margin-top:20px}
+h1 i{font-style:italic;color:var(--brass-lt)}
+.hero-sub{margin-top:20px;max-width:46ch;color:#CBD4D4;font-size:1.1rem;line-height:1.65}
+.hero-cta{display:flex;flex-wrap:wrap;gap:13px;margin-top:30px;align-items:center}
+.phone-slot{display:inline-flex;flex-direction:column;gap:3px;padding:9px 16px;
+  border:1.5px dashed rgba(212,166,97,.6);border-radius:2px}
+.phone-slot span{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass-lt);font-weight:700}
+.phone-slot b{font-family:var(--display);font-size:1.22rem;color:#fff;font-weight:400}
+.hero-art{min-width:0;display:flex;justify-content:center}
+.hero-art img{width:100%;max-width:470px;height:clamp(240px,26vw,330px);object-fit:cover;border:1px solid rgba(176,128,63,.35)}
+
+/* trust strip */
+.trust{background:var(--slate-2);color:#D5DCDC}
+.trust-row{display:flex;flex-wrap:wrap;gap:10px 40px;padding-block:17px;
+           font-weight:600;font-size:.87rem}
+.trust-row div{display:flex;align-items:center;gap:9px}
+.pip{width:6px;height:6px;background:var(--brass);flex:none;transform:rotate(45deg)}
+
+section{padding-block:clamp(58px,7.5vw,96px)}
+.sec-head{max-width:60ch}
+.sec-head h2{font-size:clamp(2rem,4.1vw,3.2rem);margin-top:12px}
+.sec-head .eyebrow{color:var(--brass)}
+.sec-head p{margin-top:16px;color:var(--muted);font-size:1.06rem;max-width:54ch}
+.center{text-align:center;margin-inline:auto}
+.center p{margin-inline:auto}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:44px}
+.svc{background:var(--stone-2);border:1px solid var(--line);padding:34px 30px 32px;min-width:0;
+     display:flex;flex-direction:column}
+.svc-no{font-family:var(--display);font-size:2.1rem;color:var(--brass);line-height:1}
+.svc h3{font-size:1.72rem;margin-top:12px}
+.svc p{margin-top:12px;color:var(--muted);font-size:1rem}
+.svc ul{margin:18px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+.svc li{display:flex;gap:10px;font-size:.96rem;color:var(--ink)}
+.svc li::before{content:"";width:7px;height:7px;background:var(--brass);transform:rotate(45deg);
+                flex:none;margin-top:8px}
+.svc .price{margin-top:auto;padding-top:22px;border-top:1px solid var(--line);
+            font-size:.95rem;color:var(--muted)}
+.svc .price b{display:block;font-family:var(--display);font-size:1.28rem;color:var(--ink);font-weight:400}
+
+/* diagram */
+.diag{background:var(--slate);color:#fff}
+.diag .sec-head .eyebrow{color:var(--brass-lt)}
+.diag .sec-head p{color:#C0CACA}
+.diag-wrap{margin-top:40px;background:var(--slate-2);border:1px solid rgba(176,128,63,.3);padding:clamp(18px,3vw,34px)}
+.diag-legend{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
+.diag-legend div{min-width:0}
+.diag-legend b{font-family:var(--display);font-size:1.22rem;color:var(--brass-lt);font-weight:400;display:block}
+.diag-legend p{color:#C0CACA;font-size:.95rem;margin-top:5px;line-height:1.55}
+
+/* agents */
+.agents{background:var(--stone-3)}
+.agents-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4.5vw,60px);align-items:center}
+.agent-points{display:flex;flex-direction:column;gap:16px;margin-top:8px}
+.agent-points > div{display:flex;gap:14px;align-items:flex-start}
+.agent-points .n{font-family:var(--display);font-size:1.3rem;color:var(--brass);flex:none;width:28px}
+.agent-points b{display:block;font-size:1.02rem}
+.agent-points p{color:var(--muted);font-size:.96rem;margin-top:3px}
+
+
+/* before / after pipe ends */
+.ba{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(14px,3vw,34px);align-items:center;
+    margin-top:34px;padding-top:30px;border-top:1px solid rgba(176,128,63,.28)}
+.ba figure{margin:0;text-align:center;min-width:0}
+.ba svg{width:100%;max-width:210px;margin-inline:auto;height:auto}
+.ba figcaption{margin-top:12px;font-weight:700;font-size:.78rem;letter-spacing:.17em;
+               text-transform:uppercase;color:var(--brass-lt)}
+.ba figcaption span{display:block;font-weight:400;letter-spacing:0;text-transform:none;
+                    font-size:.92rem;color:#AFBABA;margin-top:5px}
+.ba-arrow{font-family:var(--display);font-size:1.6rem;color:var(--brass)}
+
+/* how it works */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:44px;background:var(--line)}
+.step{background:var(--stone-2);padding:28px 24px 30px;min-width:0}
+.step .ico{color:var(--brass)}
+.step .n{font-family:var(--display);font-size:1.15rem;color:var(--muted);margin-top:16px}
+.step h3{font-size:1.22rem;margin-top:4px}
+.step p{margin-top:9px;color:var(--muted);font-size:.95rem;line-height:1.55}
+
+/* service-area map */
+.map{margin-top:38px;background:var(--stone-2);border:1px solid var(--line);padding:clamp(16px,2.6vw,28px)}
+.map svg{width:100%;height:auto}
+.map-note{margin-top:12px;font-size:.82rem;color:var(--muted)}
+
+/* areas */
+.areas{display:flex;flex-wrap:wrap;gap:9px;margin-top:34px}
+.areas span{background:var(--stone-2);border:1px solid var(--line);padding:9px 15px;font-size:.92rem}
+
+/* faq */
+.faq{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin-top:40px;background:var(--line)}
+.faq > div{background:var(--stone);padding:28px 26px}
+.faq h3{font-size:1.3rem}
+.faq p{margin-top:9px;color:var(--muted);font-size:.97rem}
+
+/* quote */
+.quote{background:var(--slate);color:#fff;position:relative;isolation:isolate;overflow:hidden}
+.quote > img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;opacity:.22}
+.quote::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(100deg,rgba(26,33,35,.96) 45%,rgba(26,33,35,.72))}
+.quote-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,5vw,62px);align-items:start}
+.quote .eyebrow{color:var(--brass-lt)}
+.quote h2{font-size:clamp(2rem,4.1vw,3.2rem);margin-top:12px}
+.quote-lede{margin-top:16px;color:#C0CACA;max-width:42ch;font-size:1.05rem}
+form{background:var(--stone-2);color:var(--ink);padding:clamp(24px,3.2vw,32px)}
+.field{display:flex;flex-direction:column;gap:7px;margin-bottom:16px}
+label{font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+input[type=text],input[type=tel],select{font-family:var(--body);font-size:1rem;padding:13px 14px;
+  border:1.5px solid var(--line);border-radius:2px;background:var(--stone);color:var(--ink);width:100%}
+input:focus,select:focus{border-color:var(--brass);outline:none}
+.form-note{margin-top:13px;font-size:.84rem;color:var(--muted);line-height:1.5}
+.sent{display:none;background:var(--slate-2);color:#fff;padding:26px;text-align:center;
+      border:1px solid rgba(176,128,63,.4)}
+.sent b{font-family:var(--display);font-size:1.4rem;display:block;margin-bottom:8px;font-weight:400}
+.sent span{color:#C0CACA;font-size:.96rem;line-height:1.55}
+
+footer{background:var(--slate);color:#AEB9B9;padding-block:48px 34px;border-top:1px solid rgba(176,128,63,.3)}
+.foot-grid{display:flex;flex-wrap:wrap;gap:34px;justify-content:space-between;align-items:flex-start}
+.foot-base{margin-top:36px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12);
+  display:flex;flex-wrap:wrap;gap:12px 26px;font-size:.84rem;color:#879596}
+
+.demo{background:var(--brass);color:#fff;font-size:.82rem;line-height:1.45}
+.demo .wrap{padding-block:9px;display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+.demo b{font-weight:800;letter-spacing:.07em;text-transform:uppercase;font-size:.71rem}
+
+@media (max-width:900px){
+  .hero-grid,.agents-grid,.quote-grid,.svc-grid,.faq,.diag-legend{grid-template-columns:1fr}
+  .navlinks{display:none}
+  .hero-art{order:-1}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .demo{font-size:.74rem}
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .btn,.phone-slot{width:100%;text-align:center;align-items:center}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="demo"><div class="wrap">
+  <b>Design concept</b>
+  <span>Greystone Sewer Co &mdash; built by Plumline. Phone number and flat-rate pricing still to be filled in.</span>
+</div></div>
+
+<header>
+  <div class="wrap navrow">
+    <a class="brand" href="#top">
+      <svg width="42" height="42" viewBox="0 0 56 56" role="img" aria-label="Greystone Sewer Co">
+        <rect width="56" height="56" fill="#2C3538"/>
+        <g fill="none" stroke="#D4A661" stroke-width="2.1">
+          <path d="M11 12h34M14 17.5h28"/>
+          <path d="M16 46V29a12 12 0 0 1 24 0v17"/>
+          <path d="M28 46V29"/>
+        </g>
+        <path d="M4 50h48" stroke="#B0803F" stroke-width="3"/>
+      </svg>
+      <span class="brand-words">
+        <span class="brand-name">Greystone</span>
+        <span class="brand-sub">Sewer Co</span>
+      </span>
+    </a>
+    <nav class="navlinks">
+      <a href="#services">Services</a>
+      <a href="#camera">What we find</a>
+      <a href="#agents">For agents</a>
+      <a href="#areas">Areas</a>
+    </nav>
+    <a class="btn btn--brass" href="#quote">Book a scope</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Sewer camera inspection &amp; rodding &middot; Chicago North Side</p>
+      <h1>Know what's in the line <i>before</i> it costs you.</h1>
+      <p class="hero-sub">We put a camera down your sewer, show you the footage, and rod it if it
+        needs rodding. Flat rate, same week, and you keep the video.</p>
+      <div class="hero-cta">
+        <a class="btn btn--brass btn--lg" href="#quote">Book a scope</a>
+        <span class="phone-slot"><span>Call or text</span><b>Number pending</b></span>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="img/manhole.jpg" alt="A sewer manhole cover set into wet asphalt">
+    </div>
+  </div>
+</section>
+
+<div class="trust"><div class="wrap trust-row">
+  <div><span class="pip"></span>Flat rate, quoted before we come out</div>
+  <div><span class="pip"></span>Footage sent to you, not just described</div>
+  <div><span class="pip"></span>Scope credited toward the rodding</div>
+  <div><span class="pip"></span>North Side only &mdash; we know the clay</div>
+</div></div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head center" style="text-align:center">
+      <p class="eyebrow">What we do</p>
+      <h2>Two things, done properly.</h2>
+      <p>No upselling you a trade we don't practise. If the line needs excavation or a liner,
+         we'll tell you and point you at someone who does it well.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="svc-no">01</div>
+        <h3>Sewer camera inspection</h3>
+        <p>A camera down the lateral from the cleanout to the city main, recorded end to end.
+           You see what we see, while we're standing there.</p>
+        <ul>
+          <li>Full run from cleanout to main</li>
+          <li>Video file sent the same day</li>
+          <li>Written findings you can hand to a contractor</li>
+          <li>Line located and depth marked on request</li>
+        </ul>
+        <p class="price"><b>Flat rate</b>Quoted on the phone before we book. No hourly meter.</p>
+      </div>
+      <div class="svc">
+        <div class="svc-no">02</div>
+        <h3>Power rodding</h3>
+        <p>Roots and grease cut back to the pipe wall. Chicago's parkway trees find clay tile
+           joints every time, and a rodded line stays open for seasons, not weeks.</p>
+        <ul>
+          <li>Cutting head sized to your line</li>
+          <li>Camera check after, so you know it cleared</li>
+          <li>Annual plans for lines with known root intrusion</li>
+          <li>Cleanout access or roof vent</li>
+        </ul>
+        <p class="price"><b>Flat rate</b>Scope price comes off the rodding if you book same day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center" style="text-align:center">
+      <p class="eyebrow">How it works</p>
+      <h2>Four steps, no mystery.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <svg class="ico" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/>
+        </svg>
+        <p class="n">01</p><h3>You call or book</h3>
+        <p>Tell us the address and whether you're on an inspection clock. You get a flat price on that call.</p>
+      </div>
+      <div class="step">
+        <svg class="ico" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 8h11l3-3h4v11h-4l-3-3H3z"/><circle cx="8" cy="11.5" r="2.5"/><path d="M6 19h6"/>
+        </svg>
+        <p class="n">02</p><h3>We scope the line</h3>
+        <p>Camera from the cleanout to the city main, recorded the whole way. You watch it with us.</p>
+      </div>
+      <div class="step">
+        <svg class="ico" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 3h9l5 5v13H5z"/><path d="M14 3v5h5"/><path d="M10 12.5v5l4.5-2.5z"/>
+        </svg>
+        <p class="n">03</p><h3>You get the footage</h3>
+        <p>Video and written findings the same day, to you, your agent, or whoever's quoting the work.</p>
+      </div>
+      <div class="step">
+        <svg class="ico" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 12h16"/><path d="M7 12c0-3 2-4 2-7M13 12c0-3 2-4 2-7M19 12c0 3-2 4-2 7M9 12c0 3-2 4-2 7"/>
+        </svg>
+        <p class="n">04</p><h3>We rod it, if it needs it</h3>
+        <p>Only if the camera says so. Scope price comes off, and we re-camera after to prove it cleared.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="diag" id="camera">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What the camera finds</p>
+      <h2>Three things go wrong in a Chicago lateral.</h2>
+      <p>Most North Side laterals are clay tile laid before the war, in three-foot sections. The
+         joints are where the trouble starts.</p>
+    </div>
+    <div class="diag-wrap">
+      <svg viewBox="0 0 900 250" role="img" aria-label="Cross-section of a sewer lateral showing root intrusion, a belly and a cracked joint" style="width:100%;height:auto">
+        <!-- house + ground -->
+        <g fill="none" stroke="#5C6A6D" stroke-width="1.4">
+          <path d="M20 66h860"/>
+          <path d="M60 66V30h84v36"/>
+        </g>
+        <text x="66" y="24" fill="#879596" font-family="Figtree,sans-serif" font-size="12" letter-spacing="1">HOUSE</text>
+        <text x="880" y="24" fill="#879596" font-family="Figtree,sans-serif" font-size="12" letter-spacing="1" text-anchor="end">CITY MAIN</text>
+        <path d="M20 90h860" fill="none" stroke="#5C6A6D" stroke-width="1" stroke-dasharray="4 6"/>
+        <!-- the lateral -->
+        <g fill="none" stroke="#D4A661" stroke-width="8" stroke-linecap="round">
+          <path d="M104 126h176"/>
+          <path d="M320 126c60 0 70 40 120 40s60-40 120-40"/>
+          <path d="M600 126h196"/>
+        </g>
+        <!-- joints -->
+        <g stroke="#141A1C" stroke-width="3">
+          <path d="M186 119v14M280 119v14M600 119v14M704 119v14"/>
+        </g>
+        <!-- roots at the joint -->
+        <g fill="none" stroke="#8C9A5E" stroke-width="2.6" stroke-linecap="round">
+          <path d="M186 118c-14-16-8-32 4-40M186 118c12-12 28-12 38-6M186 134c-10 14-28 18-40 12M186 134c12 10 16 24 12 36"/>
+        </g>
+        <!-- cracked joint -->
+        <g fill="none" stroke="#C85A3C" stroke-width="3" stroke-linecap="round">
+          <path d="M704 116l-9 24M704 116l11 11"/>
+        </g>
+        <!-- cleanout -->
+        <circle cx="104" cy="126" r="7" fill="#B0803F"/>
+        <path d="M104 119V96" stroke="#B0803F" stroke-width="2.4" fill="none"/>
+        <text x="104" y="88" fill="#879596" font-family="Figtree,sans-serif" font-size="11" text-anchor="middle" letter-spacing="1">CLEANOUT</text>
+        <!-- callouts, all below the pipe where there is room -->
+        <g stroke="#6E7C7F" stroke-width="1" fill="none">
+          <path d="M186 176v24"/><path d="M440 176v24"/><path d="M704 146v54"/>
+        </g>
+        <g fill="#D4A661" font-family="Figtree,sans-serif" font-size="13" font-weight="700" text-anchor="middle" letter-spacing="1.2">
+          <text x="186" y="220">ROOTS</text>
+          <text x="440" y="220">BELLY</text>
+          <text x="704" y="220">CRACKED JOINT</text>
+        </g>
+      </svg>
+      <div class="diag-legend">
+        <div><b>Root intrusion</b><p>Parkway trees find the joints, then grow into the flow. Rodding cuts them back; it does not stop them returning, which is why lines like this get done yearly.</p></div>
+        <div><b>A belly</b><p>The pipe has settled and holds water. Rodding won't fix it. You need to know it's there before you buy the building, not after.</p></div>
+        <div><b>Cracked or offset joint</b><p>Clay tile shifts. Small ones get lined, bad ones get dug. Either way the footage is what the contractor quotes from.</p></div>
+      </div>
+      <div class="ba">
+        <figure>
+          <svg viewBox="0 0 160 160" role="img" aria-label="Pipe end choked with roots">
+            <circle cx="80" cy="80" r="72" fill="none" stroke="#7E8C8F" stroke-width="7"/>
+            <circle cx="80" cy="80" r="62" fill="#141A1C"/>
+            <g fill="none" stroke="#8C9A5E" stroke-width="4" stroke-linecap="round">
+              <path d="M80 142c-18-22-10-44 4-58M80 142c14-18 34-22 46-14"/>
+              <path d="M34 54c18 6 30 22 34 40M126 52c-16 10-26 26-28 44"/>
+              <path d="M56 24c6 20 14 34 24 42M104 26c-6 18-16 32-24 40"/>
+              <path d="M22 96c20-2 38 4 50 12M138 98c-20 0-36 6-48 14"/>
+            </g>
+            <circle cx="80" cy="80" r="11" fill="#2C3538"/>
+          </svg>
+          <figcaption>Before<span>Roots through the joint, most of the line gone</span></figcaption>
+        </figure>
+        <div class="ba-arrow">&rarr;</div>
+        <figure>
+          <svg viewBox="0 0 160 160" role="img" aria-label="Clear pipe end after rodding">
+            <circle cx="80" cy="80" r="72" fill="none" stroke="#7E8C8F" stroke-width="7"/>
+            <circle cx="80" cy="80" r="62" fill="#141A1C"/>
+            <path d="M23 102a62 62 0 0 0 114 0z" fill="#B0803F" opacity=".55"/>
+            <circle cx="80" cy="80" r="62" fill="none" stroke="#3A4548" stroke-width="2"/>
+            <circle cx="80" cy="74" r="7" fill="#2C3538"/>
+          </svg>
+          <figcaption>After<span>Cut back to the pipe wall, flowing again</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="agents" id="agents">
+  <div class="wrap agents-grid">
+    <div>
+      <p class="eyebrow" style="color:var(--brass)">For agents &amp; inspectors</p>
+      <h2 style="font-size:clamp(1.9rem,3.6vw,2.7rem);margin-top:12px">Reported so your client can read it.</h2>
+      <p style="margin-top:16px;color:var(--muted);font-size:1.05rem">A sewer surprise after closing is the call nobody wants. You get footage and a plain-English
+        write-up, so you are not the one explaining clay tile to a nervous buyer.</p>
+      <div class="hero-cta" style="margin-top:26px">
+        <a class="btn btn--slate btn--lg" href="#quote">Set up as a referral partner</a>
+      </div>
+    </div>
+    <div class="agent-points">
+      
+      <div><span class="n">01</span><div><b>Video and written findings</b><p>Sent the same day to whoever you tell us &mdash; you, your client, or both.</p></div></div>
+      <div><span class="n">02</span><div><b>We give the number straight</b><p>No scare tactics to sell a repair we don't perform. If the line is fine, the report says the line is fine.</p></div></div>
+      <div><span class="n">04</span><div><b>We'll talk to the buyer</b><p>Happy to walk a nervous client through the footage so you're not the one explaining clay tile.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="areas">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Where we work</p>
+      <h2>The North Side, and that's the point.</h2>
+      <p>We stay inside a tight footprint so we get there quickly and we already know what's under
+         your block.</p>
+    </div>
+    <div class="map">
+      <svg viewBox="0 0 900 480" role="img" aria-label="Schematic map of the Chicago North Side neighbourhoods served">
+        <rect width="900" height="480" fill="#FFFFFF"/>
+        <g stroke="#E4E6E1" stroke-width="1" fill="none"><path d="M100 20V460"/><path d="M160 20V460"/><path d="M220 20V460"/><path d="M280 20V460"/><path d="M340 20V460"/><path d="M400 20V460"/><path d="M460 20V460"/><path d="M520 20V460"/><path d="M580 20V460"/><path d="M640 20V460"/><path d="M700 20V460"/><path d="M40 60H700"/><path d="M40 120H700"/><path d="M40 180H700"/><path d="M40 240H700"/><path d="M40 300H700"/><path d="M40 360H700"/><path d="M40 420H700"/></g>
+        <path d="M700 20c14 90 10 180 4 260 -5 70 -2 130 6 200H900V20z" fill="#DCE4E6"/>
+        <path d="M700 20c14 90 10 180 4 260 -5 70 -2 130 6 200" fill="none" stroke="#9FB2B6" stroke-width="2"/>
+        <text x="790" y="250" fill="#7E9298" font-family="Figtree,sans-serif" font-size="15" letter-spacing="3" font-weight="600">LAKE</text>
+        <text x="782" y="272" fill="#7E9298" font-family="Figtree,sans-serif" font-size="15" letter-spacing="3" font-weight="600">MICHIGAN</text>
+        <path d="M252 96C300 180 338 232 404 300c44 46 72 94 92 150" fill="none" stroke="#9FB2B6" stroke-width="5" stroke-linecap="round" opacity=".85"/>
+        <text x="214" y="92" fill="#7E9298" font-family="Figtree,sans-serif" font-size="12" font-weight="600">NORTH BRANCH</text>
+        <g><circle cx="628" cy="72" r="6" fill="#B0803F"/><circle cx="628" cy="72" r="11" fill="none" stroke="#B0803F" stroke-width="1" opacity=".45"/><circle cx="636" cy="148" r="6" fill="#B0803F"/><circle cx="636" cy="148" r="11" fill="none" stroke="#B0803F" stroke-width="1" opacity=".45"/><circle cx="470" cy="128" r="6" fill="#B0803F"/><circle cx="470" cy="128" r="11" fill="none" stroke="#B0803F" stroke-width="1" opacity=".45"/><circle cx="556" cy="170" r="6" fill="#B0803F"/><circle cx="556" cy="170" r="11" fill="none" stroke="#B0803F" stroke-width="1" opacity=".45"/><circle cx="300" cy="150" r="6" fill="#B0803F"/><circle cx="300" cy="150" r="11" fill="none" stroke="#B0803F" stroke-width="1" opacity=".45"/><circle cx="492" cy="218" r="6" fill="#B0803F"/><circle cx="492" cy="218" r="11" fill="none" stroke="#B0803F" stroke-width="1" opacity=".45"/><circle cx="504" cy="268" r="6" fill="#B0803F"/><circle cx="504" cy="268" r="11" fill="none" stroke="#B0803F" stroke-width="1" opacity=".45"/><circle cx="618" cy="240" r="6" fill="#B0803F"/><circle cx="618" cy="240" r="11" fill="none" stroke="#B0803F" stroke-width="1" opacity=".45"/><circle cx="640" cy="292" r="6" fill="#B0803F"/><circle cx="640" cy="292" r="11" fill="none" stroke="#B0803F" stroke-width="1" opacity=".45"/><circle cx="372" cy="296" r="6" fill="#B0803F"/><circle cx="372" cy="296" r="11" fill="none" stroke="#B0803F" stroke-width="1" opacity=".45"/><circle cx="458" cy="344" r="6" fill="#B0803F"/><circle cx="458" cy="344" r="11" fill="none" stroke="#B0803F" stroke-width="1" opacity=".45"/><circle cx="300" cy="358" r="6" fill="#B0803F"/><circle cx="300" cy="358" r="11" fill="none" stroke="#B0803F" stroke-width="1" opacity=".45"/><circle cx="648" cy="372" r="6" fill="#B0803F"/><circle cx="648" cy="372" r="11" fill="none" stroke="#B0803F" stroke-width="1" opacity=".45"/></g>
+        <g><text x="610" y="76" text-anchor="end" fill="#2C3538" font-family="Figtree,sans-serif" font-size="13" font-weight="600">Rogers Park</text><text x="618" y="152" text-anchor="end" fill="#2C3538" font-family="Figtree,sans-serif" font-size="13" font-weight="600">Uptown</text><text x="452" y="132" text-anchor="end" fill="#2C3538" font-family="Figtree,sans-serif" font-size="13" font-weight="600">Lincoln Square</text><text x="574" y="174" text-anchor="start" fill="#2C3538" font-family="Figtree,sans-serif" font-size="13" font-weight="600">Ravenswood</text><text x="282" y="154" text-anchor="end" fill="#2C3538" font-family="Figtree,sans-serif" font-size="13" font-weight="600">Old Irving Park</text><text x="474" y="222" text-anchor="end" fill="#2C3538" font-family="Figtree,sans-serif" font-size="13" font-weight="600">North Center</text><text x="486" y="272" text-anchor="end" fill="#2C3538" font-family="Figtree,sans-serif" font-size="13" font-weight="600">Roscoe Village</text><text x="636" y="244" text-anchor="start" fill="#2C3538" font-family="Figtree,sans-serif" font-size="13" font-weight="600">Wrigleyville</text><text x="658" y="296" text-anchor="start" fill="#2C3538" font-family="Figtree,sans-serif" font-size="13" font-weight="600">Lakeview</text><text x="354" y="300" text-anchor="end" fill="#2C3538" font-family="Figtree,sans-serif" font-size="13" font-weight="600">Logan Square</text><text x="476" y="348" text-anchor="start" fill="#2C3538" font-family="Figtree,sans-serif" font-size="13" font-weight="600">Bucktown</text><text x="282" y="362" text-anchor="end" fill="#2C3538" font-family="Figtree,sans-serif" font-size="13" font-weight="600">Humboldt Park</text><text x="666" y="376" text-anchor="start" fill="#2C3538" font-family="Figtree,sans-serif" font-size="13" font-weight="600">Lincoln Park</text></g>
+        <path d="M60 440v-40M60 400l-7 10M60 400l7 10" stroke="#7E8C8F" stroke-width="2" fill="none"/>
+        <text x="74" y="412" fill="#7E8C8F" font-family="Figtree,sans-serif" font-size="13" font-weight="700">N</text>
+      </svg>
+      <p class="map-note">Schematic, not to scale &mdash; the point is the footprint, not the cartography.</p>
+    </div>
+    <div class="areas">
+      <span>Rogers Park</span><span>Uptown</span><span>Ravenswood</span><span>Lincoln Square</span>
+      <span>North Center</span><span>Roscoe Village</span><span>Lakeview</span><span>Wrigleyville</span>
+      <span>Lincoln Park</span><span>Logan Square</span><span>Bucktown</span><span>Humboldt Park</span>
+      <span>Old Irving Park</span>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head"><p class="eyebrow">Questions</p><h2>The ones we get asked.</h2></div>
+    <div class="faq">
+      <div><h3>How long does a scope take?</h3><p>Half an hour on a typical lateral, longer if the cleanout is buried or the line is long. You get the footage the same day.</p></div>
+      <div><h3>Do I need a cleanout?</h3><p>It's the easiest access. If there isn't one we can usually go through a roof vent or a pulled toilet. We'll ask before we book so there are no surprises.</p></div>
+      <div><h3>Will rodding fix roots for good?</h3><p>No, and anyone who says otherwise is selling you something. Rodding cuts them back. Lines with mature trees over them get done on a schedule.</p></div>
+      <div><h3>Can you do the repair too?</h3><p>We scope and we rod. For lining or excavation we'll hand you the footage and point you at a contractor who does that work properly.</p></div>
+      <div><h3>Is this worth it before I buy?</h3><p>A scope costs a fraction of a lateral replacement. On pre-war North Side housing stock it's the cheapest piece of due diligence there is.</p></div>
+      <div><h3>How fast can you come out?</h3><p>Usually the same week, and inside 48 hours when there's an inspection contingency running.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="quote" id="quote">
+  <img class="bg" src="img/oldpipe.jpg" alt="">
+  <div class="wrap quote-grid">
+    <div>
+      <p class="eyebrow">Book it</p>
+      <h2>Tell us about the property.</h2>
+      <p class="quote-lede">We'll come back with a flat price and a time. If you're on an inspection
+        clock, say so and we'll work to it.</p>
+      <p style="margin-top:26px"><span class="phone-slot"><span>Call or text</span><b>Number pending</b></span></p>
+    </div>
+    <div>
+      <form id="quoteForm" novalidate>
+        <div class="field"><label for="qname">Your name</label>
+          <input type="text" id="qname" autocomplete="name" required></div>
+        <div class="field"><label for="qphone">Phone</label>
+          <input type="tel" id="qphone" autocomplete="tel" required></div>
+        <div class="field"><label for="qaddr">Property address</label>
+          <input type="text" id="qaddr" autocomplete="street-address" required></div>
+        <div class="field"><label for="qwhat">What do you need?</label>
+          <select id="qwhat">
+            <option>Camera inspection</option>
+            <option>Power rodding</option>
+            <option>Both</option>
+            <option>Scope for a purchase &mdash; on an inspection clock</option>
+            <option>Not sure, line is backing up</option>
+          </select></div>
+        <button class="btn btn--brass btn--lg" type="submit" style="width:100%">Request a time</button>
+        <p class="form-note">On the live site this lands on the owner's phone as a text the second
+          it's sent &mdash; no inbox to check, no request sitting overnight.</p>
+      </form>
+      <div class="sent" id="sent">
+        <b>That's the idea.</b>
+        <span>This is a design concept, so nothing was sent. On the live site this request would
+          already be on the phone.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="margin-bottom:14px">
+          <svg width="38" height="38" viewBox="0 0 56 56" role="img" aria-label="Greystone Sewer Co">
+            <rect width="56" height="56" fill="#2C3538"/>
+            <g fill="none" stroke="#D4A661" stroke-width="2.1">
+              <path d="M11 12h34M14 17.5h28"/><path d="M16 46V29a12 12 0 0 1 24 0v17"/><path d="M28 46V29"/>
+            </g>
+            <path d="M4 50h48" stroke="#B0803F" stroke-width="3"/>
+          </svg>
+          <span class="brand-words"><span class="brand-name">Greystone</span><span class="brand-sub">Sewer Co</span></span>
+        </div>
+        <p style="font-size:.93rem;max-width:34ch">Sewer camera inspection and power rodding on
+          Chicago's North Side.</p>
+      </div>
+      <div>
+        <p class="eyebrow" style="color:var(--brass-lt);margin-bottom:12px">Services</p>
+        <p style="font-size:.93rem;line-height:2">Sewer camera inspection<br>Power rodding<br>
+          Pre-purchase sewer scope<br>Annual root rodding plans<br>Line locating</p>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>&copy; 2026 Greystone Sewer Co</span>
+      <span>Chicago, Illinois</span>
+      <span>Site by Plumline</span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"PlumbingBusiness",
+  "name":"Greystone Sewer Co",
+  "description":"Sewer camera inspection and power rodding for homeowners, buyers and real estate agents on Chicago's North Side. Flat-rate pricing, footage provided, scope credited toward rodding.",
+  "areaServed":[
+    {"@type":"Place","name":"Rogers Park, Chicago"},{"@type":"Place","name":"Uptown, Chicago"},
+    {"@type":"Place","name":"Ravenswood, Chicago"},{"@type":"Place","name":"Lincoln Square, Chicago"},
+    {"@type":"Place","name":"North Center, Chicago"},{"@type":"Place","name":"Roscoe Village, Chicago"},
+    {"@type":"Place","name":"Lakeview, Chicago"},{"@type":"Place","name":"Lincoln Park, Chicago"},
+    {"@type":"Place","name":"Logan Square, Chicago"},{"@type":"Place","name":"Bucktown, Chicago"},
+    {"@type":"Place","name":"Humboldt Park, Chicago"},{"@type":"Place","name":"Old Irving Park, Chicago"}
+  ],
+  "knowsAbout":["Sewer camera inspection","Sewer scope","Power rodding","Root intrusion","Clay tile lateral","Sewer line locating","Pre-purchase sewer inspection"],
+  "makesOffer":[
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Sewer camera inspection"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Power rodding"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Pre-purchase sewer scope"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Annual root rodding plan"}}
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org","@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"How long does a sewer scope take?","acceptedAnswer":{"@type":"Answer","text":"About half an hour on a typical lateral, longer if the cleanout is buried or the line is long. The footage is sent the same day."}},
+    {"@type":"Question","name":"Do I need a cleanout for a sewer camera inspection?","acceptedAnswer":{"@type":"Answer","text":"A cleanout is the easiest access. Without one we can usually go through a roof vent or a pulled toilet."}},
+    {"@type":"Question","name":"Does rodding fix tree roots permanently?","acceptedAnswer":{"@type":"Answer","text":"No. Rodding cuts roots back to the pipe wall but they return. Lines under mature trees are typically rodded on an annual schedule."}},
+    {"@type":"Question","name":"Is a sewer scope worth it before buying a house?","acceptedAnswer":{"@type":"Answer","text":"A scope costs a fraction of a lateral replacement. On pre-war Chicago housing stock with clay tile laterals it is inexpensive due diligence."}}
+  ]
+}
+</script>
+
+<script>
+(function(){
+  var form=document.getElementById('quoteForm'),sent=document.getElementById('sent');
+  if(!form)return;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();form.hidden=true;sent.style.display='block';
+    sent.setAttribute('tabindex','-1');sent.focus();
+  });
+})();
+</script>
+</body>
+</html>
