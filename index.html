@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Sewer camera inspection and power rodding on Chicago North Side. Flat rate, footage provided, scope credited toward the rodding.">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <style>
 :root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html,body{margin:0}
@@ -224,11 +224,6 @@ footer{background:var(--slate);color:#AEB9B9;padding-block:48px 34px;border-top:
 </style>
 </head>
 <body>
-<div class="demo"><div class="wrap">
-  <b>Design concept</b>
-  <span>Greystone Sewer Co &mdash; built by Plumline. Phone number and flat-rate pricing still to be filled in.</span>
-</div></div>
-
 <header>
   <div class="wrap navrow">
     <a class="brand" href="#top">
@@ -267,7 +262,7 @@ footer{background:var(--slate);color:#AEB9B9;padding-block:48px 34px;border-top:
         needs rodding. Flat rate, same week, and you keep the video.</p>
       <div class="hero-cta">
         <a class="btn btn--brass btn--lg" href="#quote">Book a scope</a>
-        <span class="phone-slot"><span>Call or text</span><b>Number pending</b></span>
+        <a class="phone-slot" href="tel:+17086559270"><span>Call or text</span><b>(708) 655-9270</b></a>
       </div>
     </div>
     <div class="hero-art">
@@ -523,7 +518,7 @@ footer{background:var(--slate);color:#AEB9B9;padding-block:48px 34px;border-top:
       <h2>Tell us about the property.</h2>
       <p class="quote-lede">We'll come back with a flat price and a time. If you're on an inspection
         clock, say so and we'll work to it.</p>
-      <p style="margin-top:26px"><span class="phone-slot"><span>Call or text</span><b>Number pending</b></span></p>
+      <p style="margin-top:26px"><a class="phone-slot" href="tel:+17086559270"><span>Call or text</span><b>(708) 655-9270</b></a></p>
     </div>
     <div>
       <form id="quoteForm" novalidate>
@@ -542,13 +537,11 @@ footer{background:var(--slate);color:#AEB9B9;padding-block:48px 34px;border-top:
             <option>Not sure, line is backing up</option>
           </select></div>
         <button class="btn btn--brass btn--lg" type="submit" style="width:100%">Request a time</button>
-        <p class="form-note">On the live site this lands on the owner's phone as a text the second
-          it's sent &mdash; no inbox to check, no request sitting overnight.</p>
+        <p class="form-note">Goes straight to the owner’s phone the moment you send it. No inbox, no waiting.</p>
       </form>
       <div class="sent" id="sent">
-        <b>That's the idea.</b>
-        <span>This is a design concept, so nothing was sent. On the live site this request would
-          already be on the phone.</span>
+        <b>Got it.</b>
+        <span>Your request is on its way to Michael’s phone. Expect a call or text back shortly, usually the same day.</span>
       </div>
     </div>
   </div>
@@ -625,11 +618,26 @@ footer{background:var(--slate);color:#AEB9B9;padding-block:48px 34px;border-top:
 
 <script>
 (function(){
-  var form=document.getElementById('quoteForm'),sent=document.getElementById('sent');
+  var form=document.getElementById('quoteForm'),sent=document.getElementById('sent'),btn=form&&form.querySelector('button[type=submit]');
   if(!form)return;
+  var ENDPOINT='https://fcnuoaboyjdhmdtjatas.supabase.co/functions/v1/website-leads-webhook?user_id=b146ebae-3ffa-439f-a00d-b7bab219023f&source=greystonesewer_com';
+  var fail=function(msg){ btn.disabled=false; btn.textContent='Request a time';
+    var n=document.getElementById('formErr'); if(!n){n=document.createElement('p');n.id='formErr';n.className='form-note';n.style.color='#b23b1a';form.insertBefore(n,form.querySelector('.form-note'));}
+    n.textContent=msg; };
   form.addEventListener('submit',function(e){
-    e.preventDefault();form.hidden=true;sent.style.display='block';
-    sent.setAttribute('tabindex','-1');sent.focus();
+    e.preventDefault();
+    var name=document.getElementById('qname').value.trim(), phone=document.getElementById('qphone').value.trim(),
+        addr=document.getElementById('qaddr').value.trim(), what=document.getElementById('qwhat').value;
+    if(!name||!phone){ fail('Add your name and a phone number so we can call you back.'); return; }
+    btn.disabled=true; btn.textContent='Sending…';
+    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({contact_name:name,contact_phone:phone,address:addr,service_requested:what,message:'Website quote request: '+what+(addr?' at '+addr:'')})})
+    .then(function(r){ return r.json().catch(function(){return {};}).then(function(j){ return {ok:r.ok,j:j}; }); })
+    .then(function(res){
+      if(res.ok){ form.hidden=true; sent.style.display='block'; sent.setAttribute('tabindex','-1'); sent.focus(); }
+      else fail('That didn’t go through. Call or text (708) 655-9270 and we’ll sort it out.');
+    })
+    .catch(function(){ fail('That didn’t go through. Call or text (708) 655-9270 and we’ll sort it out.'); });
   });
 })();
 </script>
